@@ -81,7 +81,7 @@ const InicioSesion = () => {
     return (
         <>
             <Helmet>
-                <title>Iniciar sesión - Penny pinching</title>
+                <title>Iniciar sesión hola - Penny pinching</title>
             </Helmet>
 
             <Header>

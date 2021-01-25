@@ -15,6 +15,7 @@ import favicon from './imagenes/logo.png';
 import Fondo from './elementos/Fondo';
 import { AuthProvider } from './contextos/AuthContext';
 import RutaProtegida from './../src/componentes/RutaPrivada';
+import { TotalGastadoProvider } from './contextos/TotalGastadoEnElMesContext';
 
 WebFont.load({
   google: {
@@ -30,28 +31,30 @@ const Index = () => {
       </Helmet>
 
       <AuthProvider>
-        <BrowserRouter>
-          <Contenedor>
-            <Switch>
-              <Route path="/iniciar-sesion" component={Login} />
-              <Route path="/crear-cuenta" component={SignUp} />
+        <TotalGastadoProvider>
+          <BrowserRouter>
+            <Contenedor>
+              <Switch>
+                <Route path="/iniciar-sesion" component={Login} />
+                <Route path="/crear-cuenta" component={SignUp} />
 
-              <RutaProtegida path="/categorias">
-                <GastosPorCategoria />
-              </RutaProtegida>
-              <RutaProtegida path="/lista">
-                <ListaDeGastos />
-              </RutaProtegida>
-              <RutaProtegida path="/editar">
-                <EditarGasto />
-              </RutaProtegida>
-              <RutaProtegida path="/">
-                <App />
-              </RutaProtegida>
+                <RutaProtegida path="/categorias">
+                  <GastosPorCategoria />
+                </RutaProtegida>
+                <RutaProtegida path="/lista">
+                  <ListaDeGastos />
+                </RutaProtegida>
+                <RutaProtegida path="/editar/:id">
+                  <EditarGasto />
+                </RutaProtegida>
+                <RutaProtegida path="/">
+                  <App />
+                </RutaProtegida>
 
-            </Switch>
-          </Contenedor>
-        </BrowserRouter>
+              </Switch>
+            </Contenedor>
+          </BrowserRouter>
+        </TotalGastadoProvider>
       </AuthProvider>
 
       <Fondo />

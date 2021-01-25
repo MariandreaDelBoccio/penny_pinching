@@ -1,5 +1,5 @@
 import React from 'react';
-import { auth, useAuth } from './../contextos/AuthContext';
+import { useAuth } from './../contextos/AuthContext';
 import { Route, Redirect } from 'react-router-dom';
 
 const RutaProtegida = ({ children, ...restoDePropiedades }) => {
